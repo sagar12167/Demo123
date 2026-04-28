@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Mastery — Learning Roadmap</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./src/Style.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">J</div>
+      <span class="nav-logo-text">JavaMastery</span>
+    </a>
+    <div class="nav-links">
+      <a href="#roadmap">Roadmap</a>
+      <a href="./src/index.html">Concepts</a>
+      <a href="https://sagar-code-editor.vercel.app">Web code Editor</a>
+      <a href="#code">Code Examples</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#resources">Resources</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#roadmap" class="nav-cta">Start Learning</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#roadmap" onclick="closeMenu()">Roadmap</a>
+    <a href="./src/index.html" onclick="closeMenu()">Concepts</a>
+    <a href="https://sagar-code-editor.vercel.app" onclick="closeMenu()">Web code Editor</a>
+    <a href="#code" onclick="closeMenu()">Code Examples</a>
+    <a href="#quiz" onclick="closeMenu()">Quiz</a>
+    <a href="#resources" onclick="closeMenu()">Resources</a>
+    <a href="#checklist" onclick="closeMenu()">Checklist</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge animate"><span class="hero-badge-dot"></span> Beginner to Advanced · 12 Weeks</div>
+    <h1 class="animate delay-1">Master <span>Java</span><br>from zero to hero.</h1>
+    <p class="animate delay-2">A structured, interactive roadmap to learn Java — with progress tracking, code examples,
+      quizzes, and curated resources all in one place.</p>
+    <div class="hero-buttons animate delay-3">
+      <a href="#roadmap" class="btn-primary">Start the Roadmap →</a>
+      <a href="#quiz" class="btn-secondary">Take the Quiz</a>
+    </div>
+    <div class="hero-stats animate delay-3">
+      <div>
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">Learning Phases</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">28</div>
+        <div class="hero-stat-label">Topics Covered</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">12</div>
+        <div class="hero-stat-label">Weeks Estimated</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Code Examples</div>
+      </div>
+    </div>
+    <div class="hero-code animate delay-3">
+      <div class="code-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span
+          class="dot-green"></span></div>
+      <pre><span class="kw">public class</span> <span class="cls">HelloWorld</span> {
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Hello, Java!"</span>);
+    <span class="cm">// Your journey starts here 🚀</span>
+  }
+}</pre>
+    </div>
+  </section>
+
+  <!-- PROGRESS DASHBOARD -->
+  <section class="progress-section" id="progress">
+    <div class="section-inner">
+      <div class="section-label">Your Progress</div>
+      <div class="section-title">Track every step</div>
+      <div class="section-sub">Check off topics in the roadmap below — your progress updates here in real time.</div>
+      <div class="progress-cards">
+        <div class="prog-card">
+          <div class="prog-card-label">Overall progress</div>
+          <div class="prog-card-val" id="stat-pct">0<span>%</span></div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-card-label">Topics done</div>
+          <div class="prog-card-val" id="stat-done">0<span> / 28</span></div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-card-label">Current phase</div>
+          <div class="prog-card-val" style="font-size:18px;padding-top:6px" id="stat-phase">Phase 1</div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-card-label">Est. time left</div>
+          <div class="prog-card-val" id="stat-time">12<span> wks</span></div>
+        </div>
+      </div>
+      <div class="prog-bar-wrap">
+        <div class="prog-bar" id="mainBar" style="width:0%"></div>
+      </div>
+      <div class="prog-bar-label"><span id="barLabel">0 of 28 topics completed</span><span id="barPct">0%</span></div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="roadmap-section" id="roadmap">
+    <div class="section-label">Curriculum</div>
+    <div class="section-title">The Java Roadmap</div>
+    <div class="section-sub">Click any topic to mark it complete. Click a phase header to expand it.</div>
+    <div id="roadmapContainer" style="margin-top:2rem"></div>
+  </section>
+
+  <!-- CODE EXAMPLES -->
+  <section class="code-section" id="code">
+    <div class="section-inner" style="max-width:900px;margin:0 auto">
+      <div class="section-label">Examples</div>
+      <div class="section-title">Learn by example</div>
+      <div class="section-sub">Real Java code for every major concept — study it, run it, understand it.</div>
+      <div class="code-tabs" id="codeTabs"></div>
+      <div id="codePanels"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz-section" id="quiz">
+    <div class="section-label">Test Yourself</div>
+    <div class="section-title">Java knowledge quiz</div>
+    <div class="section-sub" style="margin-bottom:2rem">10 questions across all phases. See how much you've learned!
+    </div>
+    <div class="quiz-grid" id="quizContainer"></div>
+    <div class="quiz-score" id="quizScore">
+      <div style="font-size:14px;color:var(--text2);margin-bottom:.5rem">Your score</div>
+      <div class="quiz-score-num" id="scoreNum">0/10</div>
+      <div style="font-size:14px;color:var(--text2);margin-top:.5rem" id="scoreMsg"></div>
+      <button class="quiz-reset" onclick="resetQuiz()">Try Again</button>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="resources-section" id="resources">
+    <div style="max-width:900px;margin:0 auto">
+      <div class="section-label">Resources</div>
+      <div class="section-title" style="margin-bottom:.5rem">Curated for Java learners</div>
+      <div class="section-sub" style="margin-bottom:2rem">Handpicked courses, docs, and tools to accelerate your
+        learning.</div>
+      <div class="resources-grid" id="resourcesGrid"></div>
+    </div>
+  </section>
+
+  <!-- WEEKLY CHECKLIST -->
+  <section class="checklist-section" id="checklist">
+    <div class="section-label">Weekly Habits</div>
+    <div class="section-title">Build a learning routine</div>
+    <div class="section-sub" style="margin-bottom:2rem">Daily habits that separate Java beginners from real developers.
+    </div>
+    <div class="checklist-grid" id="checklistGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">JavaMastery</div>
+    <div class="footer-text">Built for every developer who is serious about learning Java. Keep going — you've got this.
+    </div>
+    <div class="footer-links">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#code">Examples</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#resources">Resources</a>
+    </div>
+  </footer>
+
+  <script>
+    // ===================== DATA =====================
+    const phases = [
+      {
+        id: 'p1', title: 'Phase 1 — Java Basics', weeks: 'Weeks 1–2', color: 'pn1',
+        resources: [{ name: 'MOOC.fi Java Course', url: 'https://java-programming.mooc.fi' }, { name: 'W3Schools Java', url: 'https://www.w3schools.com/java/' }, { name: 'JDK Download', url: 'https://www.oracle.com/java/technologies/downloads/' }],
+        topics: [
+          { name: 'Install JDK & IntelliJ IDEA', desc: 'Set up Java 21 LTS and configure IntelliJ IDEA Community Edition', tag: 'easy' },
+          { name: 'Variables & Data Types', desc: 'int, double, boolean, char, String — primitives vs reference types', tag: 'easy' },
+          { name: 'Operators & Expressions', desc: 'Arithmetic, comparison, logical and assignment operators', tag: 'easy' },
+          { name: 'Conditionals (if/else, switch)', desc: 'Decision making with if/else chains and switch statements', tag: 'easy' },
+          { name: 'Loops (for, while, do-while)', desc: 'Iteration patterns, loop control with break and continue', tag: 'easy' },
+          { name: 'Methods & Parameters', desc: 'Defining, calling, overloading and returning values from methods', tag: 'easy' },
+          { name: 'Arrays', desc: 'Declaring, initializing and iterating fixed-size arrays', tag: 'easy' },
+        ]
+      },
+      {
+        id: 'p2', title: 'Phase 2 — Object-Oriented Programming', weeks: 'Weeks 3–5', color: 'pn2',
+        resources: [{ name: 'Oracle OOP Tutorial', url: 'https://docs.oracle.com/javase/tutorial/java/concepts/' }, { name: 'Codecademy Java', url: 'https://www.codecademy.com/learn/learn-java' }],
+        topics: [
+          { name: 'Classes & Objects', desc: 'Defining blueprints, creating instances, instance vs class members', tag: 'med' },
+          { name: 'Constructors & this keyword', desc: 'Initializing objects, constructor chaining and this reference', tag: 'med' },
+          { name: 'Encapsulation', desc: 'Private fields, getters, setters and access modifiers (public/private/protected)', tag: 'med' },
+          { name: 'Inheritance & extends', desc: 'Subclasses, method overriding, super keyword and IS-A relationship', tag: 'med' },
+          { name: 'Polymorphism', desc: 'Method overloading, runtime polymorphism, upcasting and downcasting', tag: 'med' },
+          { name: 'Interfaces & Abstract Classes', desc: 'Contracts, default methods, abstract patterns and multiple inheritance', tag: 'hard' },
+          { name: 'Enums', desc: 'Defining fixed constant sets and enum methods', tag: 'med' },
+        ]
+      },
+      {
+        id: 'p3', title: 'Phase 3 — Core Java APIs', weeks: 'Weeks 6–8', color: 'pn3',
+        resources: [{ name: 'Baeldung Collections Guide', url: 'https://www.baeldung.com/java-collections' }, { name: 'Oracle Java Tutorials', url: 'https://docs.oracle.com/javase/tutorial/' }],
+        topics: [
+          { name: 'Strings & StringBuilder', desc: 'String methods, immutability, StringBuilder for efficient manipulation', tag: 'med' },
+          { name: 'ArrayList & LinkedList', desc: 'Dynamic arrays, iteration, adding/removing and performance differences', tag: 'med' },
+          { name: 'HashMap & HashSet', desc: 'Key-value storage, hashing, collision and iteration patterns', tag: 'med' },
+          { name: 'Exception Handling', desc: 'try/catch/finally, checked vs unchecked, custom exceptions', tag: 'med' },
+          { name: 'File I/O basics', desc: 'Reading/writing files with java.io and java.nio packages', tag: 'hard' },
+          { name: 'Generics', desc: 'Type parameters, bounded types, wildcards and generic methods', tag: 'hard' },
+          { name: 'Comparable & Comparator', desc: 'Sorting objects with natural ordering and custom comparators', tag: 'hard' },
+        ]
+      },
+      {
+        id: 'p4', title: 'Phase 4 — Modern Java & Beyond', weeks: 'Weeks 9–12', color: 'pn4',
+        resources: [{ name: 'Baeldung Java 8+ Features', url: 'https://www.baeldung.com/java-8-new-features' }, { name: 'Spring Boot Quickstart', url: 'https://start.spring.io' }],
+        topics: [
+          { name: 'Lambda Expressions', desc: 'Functional interfaces, arrow syntax, method references and closure', tag: 'hard' },
+          { name: 'Streams API', desc: 'Declarative pipelines: filter, map, reduce, collect and flatMap', tag: 'hard' },
+          { name: 'Optional<T>', desc: 'Eliminate NullPointerExceptions with Optional and its methods', tag: 'hard' },
+          { name: 'Multithreading Basics', desc: 'Thread, Runnable, synchronized keyword and basic concurrency', tag: 'hard' },
+          { name: 'Build a Project', desc: 'Apply everything — build a bank app, quiz system or to-do manager', tag: 'hard' },
+          { name: 'Intro to Spring Boot', desc: 'REST APIs, dependency injection and building your first web service', tag: 'hard' },
+          { name: 'Unit Testing with JUnit', desc: 'Write tests, assertions and test-driven development basics', tag: 'hard' },
+        ]
+      }
+    ];
+
+    const codeExamples = [
+      {
+        label: 'Hello World', file: 'HelloWorld.java',
+        code: `<span class="kw">public class</span> <span class="cls">HelloWorld</span> {
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Hello, World!"</span>);
+
+    <span class="cm">// Variables and types</span>
+    <span class="kw">int</span> age = <span class="num">25</span>;
+    <span class="kw">double</span> gpa = <span class="num">3.8</span>;
+    <span class="kw">boolean</span> isStudent = <span class="kw">true</span>;
+    <span class="cls">String</span> name = <span class="str">"Alice"</span>;
+
+    <span class="cls">System</span>.out.<span class="fn">println</span>(name + <span class="str">" is "</span> + age + <span class="str">" years old"</span>);
+  }
+}`,
+        points: ['System.out.println() prints to console', 'Java is strongly typed — every variable needs a type', 'String is a class, not a primitive', '+ operator concatenates strings']
+      },
+      {
+        label: 'OOP', file: 'BankAccount.java',
+        code: `<span class="kw">public class</span> <span class="cls">BankAccount</span> {
+  <span class="kw">private</span> <span class="cls">String</span> owner;
+  <span class="kw">private double</span> balance;
+
+  <span class="kw">public</span> <span class="fn">BankAccount</span>(<span class="cls">String</span> owner, <span class="kw">double</span> initial) {
+    <span class="kw">this</span>.owner = owner;
+    <span class="kw">this</span>.balance = initial;
+  }
+
+  <span class="kw">public void</span> <span class="fn">deposit</span>(<span class="kw">double</span> amount) {
+    <span class="kw">if</span> (amount > <span class="num">0</span>) balance += amount;
+  }
+
+  <span class="kw">public boolean</span> <span class="fn">withdraw</span>(<span class="kw">double</span> amount) {
+    <span class="kw">if</span> (amount > balance) <span class="kw">return false</span>;
+    balance -= amount;
+    <span class="kw">return true</span>;
+  }
+
+  <span class="kw">public double</span> <span class="fn">getBalance</span>() { <span class="kw">return</span> balance; }
+
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cls">BankAccount</span> acc = <span class="kw">new</span> <span class="cls">BankAccount</span>(<span class="str">"Alice"</span>, <span class="num">500.0</span>);
+    acc.<span class="fn">deposit</span>(<span class="num">200</span>);
+    acc.<span class="fn">withdraw</span>(<span class="num">100</span>);
+    <span class="cls">System</span>.out.<span class="fn">println</span>(acc.<span class="fn">getBalance</span>()); <span class="cm">// 600.0</span>
+  }
+}`,
+        points: ['private fields enforce encapsulation', 'Constructors initialize objects with this keyword', 'Methods represent behaviour of the object', 'Return types declare what a method outputs']
+      },
+      {
+        label: 'Collections', file: 'CollectionsDemo.java',
+        code: `<span class="kw">import</span> java.util.*;
+
+<span class="kw">public class</span> <span class="cls">CollectionsDemo</span> {
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cm">// ArrayList — dynamic array</span>
+    <span class="cls">List</span>&lt;<span class="cls">String</span>&gt; names = <span class="kw">new</span> <span class="cls">ArrayList</span>&lt;&gt;();
+    names.<span class="fn">add</span>(<span class="str">"Alice"</span>); names.<span class="fn">add</span>(<span class="str">"Bob"</span>);
+    <span class="cls">Collections</span>.<span class="fn">sort</span>(names);
+
+    <span class="cm">// HashMap — key-value pairs</span>
+    <span class="cls">Map</span>&lt;<span class="cls">String</span>, <span class="cls">Integer</span>&gt; scores = <span class="kw">new</span> <span class="cls">HashMap</span>&lt;&gt;();
+    scores.<span class="fn">put</span>(<span class="str">"Alice"</span>, <span class="num">95</span>);
+    scores.<span class="fn">put</span>(<span class="str">"Bob"</span>, <span class="num">87</span>);
+    <span class="cls">System</span>.out.<span class="fn">println</span>(scores.<span class="fn">get</span>(<span class="str">"Alice"</span>)); <span class="cm">// 95</span>
+
+    <span class="cm">// HashSet — unique values only</span>
+    <span class="cls">Set</span>&lt;<span class="cls">Integer</span>&gt; nums = <span class="kw">new</span> <span class="cls">HashSet</span>&lt;&gt;();
+    nums.<span class="fn">add</span>(<span class="num">1</span>); nums.<span class="fn">add</span>(<span class="num">2</span>); nums.<span class="fn">add</span>(<span class="num">1</span>);
+    <span class="cls">System</span>.out.<span class="fn">println</span>(nums.<span class="fn">size</span>()); <span class="cm">// 2</span>
+  }
+}`,
+        points: ['ArrayList is resizable; arrays are fixed', 'HashMap gives O(1) average lookup by key', 'HashSet stores unique elements only', 'Use generics <Type> for type safety']
+      },
+      {
+        label: 'Streams', file: 'StreamsDemo.java',
+        code: `<span class="kw">import</span> java.util.*;
+<span class="kw">import</span> java.util.stream.*;
+
+<span class="kw">public class</span> <span class="cls">StreamsDemo</span> {
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cls">List</span>&lt;<span class="cls">Integer</span>&gt; numbers = <span class="cls">List</span>.<span class="fn">of</span>(<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>);
+
+    <span class="cm">// Filter even numbers, square them, collect</span>
+    <span class="cls">List</span>&lt;<span class="cls">Integer</span>&gt; result = numbers.<span class="fn">stream</span>()
+      .<span class="fn">filter</span>(n -> n % <span class="num">2</span> == <span class="num">0</span>)
+      .<span class="fn">map</span>(n -> n * n)
+      .<span class="fn">collect</span>(<span class="cls">Collectors</span>.<span class="fn">toList</span>());
+    <span class="cls">System</span>.out.<span class="fn">println</span>(result); <span class="cm">// [4, 16, 36, 64, 100]</span>
+
+    <span class="cm">// Sum all elements</span>
+    <span class="kw">int</span> sum = numbers.<span class="fn">stream</span>()
+      .<span class="fn">reduce</span>(<span class="num">0</span>, <span class="cls">Integer</span>::sum);
+    <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Sum: "</span> + sum); <span class="cm">// 55</span>
+
+    <span class="cm">// Lambda — double each number</span>
+    numbers.<span class="fn">stream</span>().<span class="fn">map</span>(n -> n * <span class="num">2</span>)
+      .<span class="fn">forEach</span>(<span class="cls">System</span>.out::<span class="fn">println</span>);
+  }
+}`,
+        points: ['Streams process collections declaratively', 'filter() keeps elements matching a condition', 'map() transforms each element', 'reduce() collapses the stream to a single value']
+      },
+      {
+        label: 'Exceptions', file: 'ExceptionDemo.java',
+        code: `<span class="kw">public class</span> <span class="cls">ExceptionDemo</span> {
+
+  <span class="kw">static int</span> <span class="fn">divide</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+    <span class="kw">if</span> (b == <span class="num">0</span>)
+      <span class="kw">throw new</span> <span class="cls">ArithmeticException</span>(<span class="str">"Cannot divide by zero"</span>);
+    <span class="kw">return</span> a / b;
+  }
+
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cm">// try-catch-finally</span>
+    <span class="kw">try</span> {
+      <span class="kw">int</span> result = <span class="fn">divide</span>(<span class="num">10</span>, <span class="num">0</span>);
+    } <span class="kw">catch</span> (<span class="cls">ArithmeticException</span> e) {
+      <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Caught: "</span> + e.<span class="fn">getMessage</span>());
+    } <span class="kw">finally</span> {
+      <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Always runs"</span>);
+    }
+
+    <span class="cm">// Try-with-resources (auto-close)</span>
+    <span class="kw">try</span> (<span class="kw">var</span> sc = <span class="kw">new</span> java.util.<span class="cls">Scanner</span>(System.in)) {
+      <span class="cm">// sc is auto-closed after this block</span>
+    }
+  }
+}`,
+        points: ['throw creates and throws an exception', 'catch handles a specific exception type', 'finally always runs, even after an exception', 'try-with-resources auto-closes Closeable objects']
+      },
+      {
+        label: 'Inheritance', file: 'ShapeDemo.java',
+        code: `<span class="kw">abstract class</span> <span class="cls">Shape</span> {
+  <span class="kw">abstract double</span> <span class="fn">area</span>();
+  <span class="kw">void</span> <span class="fn">describe</span>() {
+    <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Area: "</span> + <span class="fn">area</span>());
+  }
+}
+
+<span class="kw">class</span> <span class="cls">Circle</span> <span class="kw">extends</span> <span class="cls">Shape</span> {
+  <span class="kw">double</span> radius;
+  <span class="cls">Circle</span>(<span class="kw">double</span> r) { <span class="kw">this</span>.radius = r; }
+
+  <span class="kw">@Override</span>
+  <span class="kw">double</span> <span class="fn">area</span>() { <span class="kw">return</span> Math.PI * radius * radius; }
+}
+
+<span class="kw">class</span> <span class="cls">Rectangle</span> <span class="kw">extends</span> <span class="cls">Shape</span> {
+  <span class="kw">double</span> w, h;
+  <span class="cls">Rectangle</span>(<span class="kw">double</span> w, <span class="kw">double</span> h) { <span class="kw">this</span>.w=w; <span class="kw">this</span>.h=h; }
+
+  <span class="kw">@Override</span>
+  <span class="kw">double</span> <span class="fn">area</span>() { <span class="kw">return</span> w * h; }
+}
+
+<span class="kw">public class</span> <span class="cls">ShapeDemo</span> {
+  <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="cls">Shape</span>[] shapes = { <span class="kw">new</span> <span class="cls">Circle</span>(<span class="num">5</span>), <span class="kw">new</span> <span class="cls">Rectangle</span>(<span class="num">4</span>,<span class="num">6</span>) };
+    <span class="kw">for</span> (<span class="cls">Shape</span> s : shapes) s.<span class="fn">describe</span>();
+  }
+}`,
+        points: ['abstract classes cannot be instantiated directly', 'extends inherits all non-private members', '@Override ensures you mean to override', 'Polymorphism lets Shape[] hold any Shape subclass']
+      }
+    ];
+
+    const quizData = [
+      { q: 'Which keyword is used to create a class in Java?', opts: ['create', 'class', 'new', 'define'], correct: 1, explain: 'The class keyword declares a new class definition.' },
+      { q: 'What is the output of: System.out.println(10 / 3)?', opts: ['3.33', '3', '4', 'Error'], correct: 1, explain: 'Integer division in Java truncates the decimal — 10/3 = 3.' },
+      { q: 'Which access modifier makes a member visible only within its class?', opts: ['public', 'protected', 'default', 'private'], correct: 3, explain: 'private restricts access to the declaring class only.' },
+      { q: 'What does ArrayList store compared to a regular array?', opts: ['Fixed-size elements', 'Objects only', 'Dynamic-size elements', 'Primitive types only'], correct: 2, explain: 'ArrayList is a resizable array that grows and shrinks automatically.' },
+      { q: 'What is the purpose of the "this" keyword?', opts: ['Create a new object', 'Refer to the current object instance', 'Call the parent class', 'Import a class'], correct: 1, explain: 'this references the current object and resolves name conflicts between fields and parameters.' },
+      { q: 'Which Java feature allows a class to implement multiple contracts?', opts: ['Abstract classes', 'Inheritance', 'Interfaces', 'Generics'], correct: 2, explain: 'A class can implement multiple interfaces but extend only one class.' },
+      { q: 'What does the Stream .filter() method do?', opts: ['Transforms elements', 'Removes duplicates', 'Keeps elements matching a condition', 'Sorts elements'], correct: 2, explain: 'filter() returns a stream of elements that satisfy the given predicate.' },
+      { q: 'Which exception occurs when dividing an integer by zero?', opts: ['NullPointerException', 'ArithmeticException', 'NumberFormatException', 'IndexOutOfBoundsException'], correct: 1, explain: 'Integer division by zero throws ArithmeticException in Java.' },
+      { q: 'What is a constructor used for?', opts: ['Destroying objects', 'Initializing a new object', 'Defining class methods', 'Importing packages'], correct: 1, explain: 'A constructor initializes a newly created object, setting up its initial state.' },
+      { q: 'In Java, String is…', opts: ['A primitive type', 'An interface', 'An immutable class', 'A keyword'], correct: 2, explain: 'String is an immutable class — once created, its value cannot be changed.' },
+    ];
+
+    const resources = [
+      { icon: '🎓', name: 'MOOC.fi Java Programming', desc: 'The best free, structured Java course. University of Helsinki quality.', tag: 'Free', cls: 'rtag-free', url: 'https://java-programming.mooc.fi' },
+      { icon: '📺', name: 'Tim Buchalka — Udemy', desc: 'The most comprehensive Java course on Udemy with 800,000+ students.', tag: 'Paid', cls: 'rtag-paid', url: 'https://www.udemy.com/course/java-the-complete-java-developer-course/' },
+      { icon: '📖', name: 'Oracle Java Tutorials', desc: 'Official Java documentation and tutorials from Oracle. Always up to date.', tag: 'Free', cls: 'rtag-free', url: 'https://docs.oracle.com/javase/tutorial/' },
+      { icon: '🔧', name: 'IntelliJ IDEA Community', desc: 'The best free IDE for Java development by JetBrains.', tag: 'Free', cls: 'rtag-free', url: 'https://www.jetbrains.com/idea/download/' },
+      { icon: '💡', name: 'Baeldung', desc: 'Deep-dive articles on Java, Spring, and the broader JVM ecosystem.', tag: 'Free', cls: 'rtag-free', url: 'https://www.baeldung.com' },
+      { icon: '🎮', name: 'Codecademy Java', desc: 'Interactive Java lessons in the browser — great for visual learners.', tag: 'Free', cls: 'rtag-free', url: 'https://www.codecademy.com/learn/learn-java' },
+      { icon: '📚', name: 'Effective Java — Bloch', desc: 'The bible of Java best practices. Essential reading after the basics.', tag: 'Paid', cls: 'rtag-paid', url: 'https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/' },
+      { icon: '⚡', name: 'LeetCode Java', desc: 'Practice data structures and algorithms with Java problem sets.', tag: 'Free', cls: 'rtag-free', url: 'https://leetcode.com/problemset/' },
+    ];
+
+    const checklists = [
+      { title: 'Daily Habits', icon: '☀️', items: ['Code for at least 30 minutes', 'Review yesterday\'s code', 'Read one Java article or doc', 'Push code to GitHub'] },
+      { title: 'Weekly Goals', icon: '📅', items: ['Complete 1 full topic from the roadmap', 'Build or extend a mini project', 'Watch one tutorial video', 'Solve 3 LeetCode problems'] },
+      { title: 'Project Ideas', icon: '🛠️', items: ['Console calculator app', 'Student grade manager', 'Simple to-do list app', 'Bank account simulator', 'Basic quiz game', 'Inventory tracker'] },
+      { title: 'Before Moving On', icon: '✅', items: ['Can explain the concept in plain words', 'Built something using the concept', 'Reviewed edge cases and errors', 'Helped someone else with it'] },
+    ];
+
+    // ===================== STATE =====================
+    const done = JSON.parse(localStorage.getItem('javaRoadmapDone') || '{}');
+    let quizAnswers = {};
+    let quizCorrect = 0;
+
+    function saveState() {
+      localStorage.setItem('javaRoadmapDone', JSON.stringify(done));
+    }
+
+    // ===================== ROADMAP =====================
+    function buildRoadmap() {
+      const c = document.getElementById('roadmapContainer');
+      phases.forEach((phase, pi) => {
+        const div = document.createElement('div');
+        div.className = 'phase-block reveal';
+        const doneCount = phase.topics.filter((_, ti) => done[phase.id + '-' + ti]).length;
+        div.innerHTML = `
+      <div class="phase-head" onclick="togglePhase('${phase.id}')">
+        <div class="phase-num ${phase.color}">0${pi + 1}</div>
+        <div class="phase-info">
+          <div class="phase-name">${phase.title}</div>
+          <div class="phase-meta">${phase.weeks} · ${phase.topics.length} topics</div>
+        </div>
+        <div class="phase-progress-pill" id="pill-${phase.id}">${doneCount}/${phase.topics.length}</div>
+        <div class="phase-chevron" id="chev-${phase.id}">&#9658;</div>
+      </div>
+      <div class="phase-body" id="body-${phase.id}">
+        <div id="topics-${phase.id}"></div>
+        <div class="phase-resources">
+          <span class="res-label">Resources:</span>
+          ${phase.resources.map(r => `<a class="res-link" href="${r.url}" target="_blank">${r.name}</a>`).join('')}
+        </div>
+      </div>`;
+        c.appendChild(div);
+
+        const tl = document.getElementById('topics-' + phase.id);
+        phase.topics.forEach((t, ti) => {
+          const key = phase.id + '-' + ti;
+          const isDone = !!done[key];
+          const el = document.createElement('div');
+          el.className = 'topic-item' + (isDone ? ' done' : '');
+          el.id = 'ti-' + key;
+          el.innerHTML = `
+        <div class="topic-checkbox" id="tc-${key}">
+          <svg class="checksvg" viewBox="0 0 11 8" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="topic-text">
+          <div class="topic-name">${t.name}</div>
+          <div class="topic-desc">${t.desc}</div>
+        </div>
+        <div class="topic-tag tag-${t.tag}">${t.tag}</div>`;
+          el.onclick = () => toggleTopic(key, phase.id);
+          tl.appendChild(el);
+        });
+
+        if (pi === 0) togglePhase(phase.id);
+      });
+    }
+
+    function togglePhase(id) {
+      const body = document.getElementById('body-' + id);
+      const chev = document.getElementById('chev-' + id);
+      body.classList.toggle('open');
+      chev.classList.toggle('open');
+    }
+
+    function toggleTopic(key, phaseId) {
+      done[key] = !done[key];
+      saveState();
+      const el = document.getElementById('ti-' + key);
+      el.classList.toggle('done', done[key]);
+      updateProgress();
+      updatePhasePill(phaseId);
+    }
+
+    function updatePhasePill(pid) {
+      const phase = phases.find(p => p.id === pid);
+      const doneCount = phase.topics.filter((_, ti) => done[pid + '-' + ti]).length;
+      document.getElementById('pill-' + pid).textContent = doneCount + '/' + phase.topics.length;
+    }
+
+    function updateProgress() {
+      const total = phases.reduce((a, p) => a + p.topics.length, 0);
+      const completed = Object.values(done).filter(Boolean).length;
+      const pct = Math.round((completed / total) * 100);
+      document.getElementById('mainBar').style.width = pct + '%';
+      document.getElementById('barLabel').textContent = completed + ' of ' + total + ' topics completed';
+      document.getElementById('barPct').textContent = pct + '%';
+      document.getElementById('stat-pct').innerHTML = pct + '<span>%</span>';
+      document.getElementById('stat-done').innerHTML = completed + '<span> / ' + total + '</span>';
+      const weeksLeft = Math.max(0, Math.round(12 * (1 - pct / 100)));
+      document.getElementById('stat-time').innerHTML = weeksLeft + '<span> wks</span>';
+
+      let currentPhase = 'Phase 1';
+      let cumulative = 0;
+      for (let i = 0; i < phases.length; i++) {
+        cumulative += phases[i].topics.length;
+        if (completed < cumulative) { currentPhase = 'Phase ' + (i + 1); break; }
+        if (i === phases.length - 1) currentPhase = 'Complete!';
+      }
+      document.getElementById('stat-phase').textContent = currentPhase;
+    }
+
+    // ===================== CODE EXAMPLES =====================
+    function buildCode() {
+      const tabs = document.getElementById('codeTabs');
+      const panels = document.getElementById('codePanels');
+      codeExamples.forEach((ex, i) => {
+        const tab = document.createElement('button');
+        tab.className = 'code-tab' + (i === 0 ? ' active' : '');
+        tab.textContent = ex.label;
+        tab.onclick = () => switchTab(i);
+        tabs.appendChild(tab);
+
+        const panel = document.createElement('div');
+        panel.className = 'code-panel' + (i === 0 ? ' active' : '');
+        panel.id = 'cp-' + i;
+        panel.innerHTML = `
+      <div class="code-box">
+        <div class="code-box-header">
+          <span class="code-box-title">${ex.file}</span>
+          <button class="copy-btn" onclick="copyCode(${i}, this)">Copy</button>
+        </div>
+        <pre>${ex.code}</pre>
+      </div>
+      <div class="code-explain">
+        <h4>Key takeaways</h4>
+        <ul>${ex.points.map(p => '<li>' + p + '</li>').join('')}</ul>
+      </div>`;
+        panels.appendChild(panel);
+      });
+    }
+
+    function switchTab(idx) {
+      document.querySelectorAll('.code-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+      document.querySelectorAll('.code-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
+    }
+
+    function copyCode(idx, btn) {
+      const raw = codeExamples[idx].code.replace(/<[^>]+>/g, '');
+      navigator.clipboard.writeText(raw).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // ===================== QUIZ =====================
+    function buildQuiz() {
+      const c = document.getElementById('quizContainer');
+      quizData.forEach((q, qi) => {
+        const card = document.createElement('div');
+        card.className = 'quiz-card reveal';
+        card.innerHTML = `
+      <div class="quiz-q"><strong>Q${qi + 1}.</strong> ${q.q}</div>
+      <div class="quiz-options" id="qopts-${qi}">
+        ${q.opts.map((opt, oi) => `<button class="quiz-opt" onclick="answerQuiz(${qi},${oi})">${opt}</button>`).join('')}
+      </div>
+      <div class="quiz-feedback" id="qfb-${qi}"></div>`;
+        c.appendChild(card);
+      });
+    }
+
+    function answerQuiz(qi, oi) {
+      if (quizAnswers[qi] !== undefined) return;
+      quizAnswers[qi] = oi;
+      const opts = document.getElementById('qopts-' + qi).querySelectorAll('.quiz-opt');
+      opts.forEach(o => o.disabled = true);
+      opts[oi].classList.add(oi === quizData[qi].correct ? 'correct' : 'wrong');
+      if (oi !== quizData[qi].correct) opts[quizData[qi].correct].classList.add('correct');
+      const fb = document.getElementById('qfb-' + qi);
+      if (oi === quizData[qi].correct) {
+        quizCorrect++;
+        fb.innerHTML = '<span style="color:var(--green)">✓ Correct! </span><span style="color:var(--text2)">' + quizData[qi].explain + '</span>';
+      } else {
+        fb.innerHTML = '<span style="color:var(--red)">✗ Wrong. </span><span style="color:var(--text2)">' + quizData[qi].explain + '</span>';
+      }
+      if (Object.keys(quizAnswers).length === quizData.length) showScore();
+    }
+
+    function showScore() {
+      const scoreEl = document.getElementById('quizScore');
+      scoreEl.style.display = 'block';
+      document.getElementById('scoreNum').textContent = quizCorrect + '/' + quizData.length;
+      const msg = quizCorrect >= 9 ? '🏆 Excellent! You\'re a Java master!' :
+        quizCorrect >= 7 ? '👍 Great job! Keep practicing.' :
+          quizCorrect >= 5 ? '📚 Good effort! Review the roadmap.' : '💪 Keep studying — you\'ve got this!';
+      document.getElementById('scoreMsg').textContent = msg;
+      scoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function resetQuiz() {
+      quizAnswers = {};
+      quizCorrect = 0;
+      document.getElementById('quizScore').style.display = 'none';
+      const c = document.getElementById('quizContainer');
+      c.innerHTML = '';
+      buildQuiz();
+      initReveal();
+    }
+
+    // ===================== RESOURCES =====================
+    function buildResources() {
+      const g = document.getElementById('resourcesGrid');
+      resources.forEach(r => {
+        const a = document.createElement('a');
+        a.className = 'resource-card reveal';
+        a.href = r.url;
+        a.target = '_blank';
+        a.innerHTML = `
+      <div class="resource-card-icon">${r.icon}</div>
+      <div class="resource-card-name">${r.name}</div>
+      <div class="resource-card-desc">${r.desc}</div>
+      <span class="resource-card-tag ${r.cls}">${r.tag}</span>`;
+        g.appendChild(a);
+      });
+    }
+
+    // ===================== CHECKLIST =====================
+    const clDone = JSON.parse(localStorage.getItem('javaChecklist') || '{}');
+
+    function buildChecklist() {
+      const g = document.getElementById('checklistGrid');
+      checklists.forEach((cl, ci) => {
+        const card = document.createElement('div');
+        card.className = 'checklist-card reveal';
+        card.innerHTML = `<div class="checklist-card-title">${cl.icon} ${cl.title}</div>
+      ${cl.items.map((item, ii) => {
+          const key = 'cl-' + ci + '-' + ii;
+          const isDone = !!clDone[key];
+          return `<div class="checklist-item${isDone ? ' done' : ''}" id="${key}" onclick="toggleCl('${key}')">
+          <div class="cl-check">${isDone ? '<svg width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M1 3.5L3.5 6L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}</div>
+          <div class="cl-text">${item}</div>
+        </div>`;
+        }).join('')}`;
+        g.appendChild(card);
+      });
+    }
+
+    function toggleCl(key) {
+      clDone[key] = !clDone[key];
+      localStorage.setItem('javaChecklist', JSON.stringify(clDone));
+      const el = document.getElementById(key);
+      el.classList.toggle('done', clDone[key]);
+      const chk = el.querySelector('.cl-check');
+      chk.innerHTML = clDone[key] ? '<svg width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M1 3.5L3.5 6L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '';
+    }
+
+    // ===================== NAV =====================
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    // ===================== SCROLL REVEAL =====================
+    function initReveal() {
+      const els = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      els.forEach(el => obs.observe(el));
+    }
+
+    // ===================== INIT =====================
+    document.addEventListener('DOMContentLoaded', () => {
+      buildRoadmap();
+      buildCode();
+      buildQuiz();
+      buildResources();
+      buildChecklist();
+      updateProgress();
+      phases.forEach(p => updatePhasePill(p.id));
+      initReveal();
+
+      // Navbar active link highlighting
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      }, { passive: true });
+    });
+  </script>
+</body>
+
+</html>
